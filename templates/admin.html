@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Portal - Cập Nhật Top Banner Từ Điện Thoại</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@500;700&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body style="display: flex; align-items: center; justify-content: center; min-height: 100vh; padding: 20px;">
+    <div class="cyber-bg-glow glow-1"></div>
+    <div class="grid-overlay"></div>
+
+    <div style="position: relative; z-index: 1; max-width: 480px; width: 100%;">
+        <div class="cyber-card" style="margin-bottom: 0;">
+            <div class="card-header" style="justify-content: center; text-align: center;">
+                <span class="header-icon"><i class="fa-solid fa-mobile-screen-button"></i></span>
+                <h2>ADMIN MOBILE PORTAL</h2>
+            </div>
+            <div class="card-body">
+                <p style="font-size: 13.5px; color: #94a3b8; text-align: center; margin-bottom: 20px;">
+                    Cập nhật <strong>Top Banner chữ chạy</strong> hiển thị trên website chính thức của Nguyễn Hoàng từ điện thoại di động.
+                </p>
+
+                <div style="background: rgba(30, 41, 59, 0.6); padding: 12px; border-radius: 8px; border: 1px solid rgba(56, 189, 248, 0.2); margin-bottom: 20px; font-size: 13px;">
+                    <div style="color: #64748b; font-size: 11px; text-transform: uppercase; font-family: var(--font-mono); margin-bottom: 4px;">Lời nhắn hiện tại trên Banner:</div>
+                    <div id="currentBanner" style="color: #38bdf8; font-weight: 600;">Đang tải...</div>
+                </div>
+
+                <form id="adminForm">
+                    <div class="form-group">
+                        <label for="adminPin"><i class="fa-solid fa-key"></i> Mã PIN xác thực Admin:</label>
+                        <input type="password" id="adminPin" required placeholder="Nhập mã PIN (Mặc định: 2006)" value="2006">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="bannerMessage"><i class="fa-solid fa-bullhorn"></i> Lời nhắn mới cho Top Banner:</label>
+                        <textarea id="bannerMessage" rows="3" required placeholder="Ví dụ: Chào mừng thầy cô! Tôi vừa cập nhật thông báo này trực tiếp từ điện thoại."></textarea>
+                    </div>
+
+                    <button type="submit" class="cyber-btn" id="updateBtn">
+                        <span class="btn-text"><i class="fa-solid fa-paper-plane"></i> Phát Lệnh Cập Nhật Banner</span>
+                    </button>
+
+                    <div id="adminAlert" class="alert-box hidden"></div>
+                </form>
+
+                <div style="margin-top: 25px; text-align: center;">
+                    <a href="/" style="color: #94a3b8; font-size: 13px; text-decoration: none; display: inline-flex; align-items: center; gap: 6px;">
+                        <i class="fa-solid fa-arrow-left"></i> Quay lại Trang chủ Website
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        async function loadCurrentBanner() {
+            try {
+                const res = await fetch('/api/banner');
+                const data = await res.json();
+                document.getElementById('currentBanner').textContent = data.message || 'Chưa có lời nhắn';
+            } catch (e) {
+                document.getElementById('currentBanner').textContent = 'Không tải được banner hiện tại.';
+            }
+        }
+        loadCurrentBanner();
+
+        document.getElementById('adminForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            const btn = document.getElementById('updateBtn');
+            const alertBox = document.getElementById('adminAlert');
+            const pin = document.getElementById('adminPin').value.trim();
+            const message = document.getElementById('bannerMessage').value.trim();
+
+            btn.disabled = true;
+            btn.innerHTML = '<span class="btn-text"><i class="fa-solid fa-spinner fa-spin"></i> Đang cập nhật...</span>';
+
+            try {
+                const res = await fetch('/api/banner', {
+                    method: 'POST',
+                    headers: {'Content-Type': 'application/json'},
+                    body: JSON.stringify({ pin: pin, message: message })
+                });
+                const result = await res.json();
+                alertBox.textContent = result.message;
+                alertBox.className = 'alert-box ' + (res.ok ? 'alert-success' : 'alert-error');
+                if (res.ok) {
+                    document.getElementById('currentBanner').textContent = message;
+                    document.getElementById('bannerMessage').value = '';
+                }
+            } catch (err) {
+                alertBox.textContent = 'Lỗi kết nối máy chủ!';
+                alertBox.className = 'alert-box alert-error';
+            } finally {
+                btn.disabled = false;
+                btn.innerHTML = '<span class="btn-text"><i class="fa-solid fa-paper-plane"></i> Phát Lệnh Cập Nhật Banner</span>';
+            }
+        });
+    </script>
+</body>
+</html>

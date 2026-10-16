@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nguyễn Hoàng - SOC Analyst & Information Security Portfolio</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Background Cyber Grid & Glows -->
+    <div class="cyber-bg-glow glow-1"></div>
+    <div class="cyber-bg-glow glow-2"></div>
+    <!-- TOP RUNNING BANNER (Chữ chạy từ phải sang trái chứa lời nhắn mới nhất của Admin từ điện thoại) -->
+    <div class="marquee-top-bar">
+        <div class="marquee-label">
+            <span class="live-blink">●</span>
+            <i class="fa-solid fa-bullhorn"></i> LỜI NHẮN ADMIN:
+        </div>
+        <div class="marquee-window">
+            <div class="marquee-track" id="topMarqueeText">
+                {{ banner_message }}
+            </div>
+        </div>
+        <a href="/admin" class="marquee-admin-btn" title="Admin cập nhật lời nhắn từ điện thoại">
+            <i class="fa-solid fa-mobile-screen-button"></i> Đổi Lời Nhắn
+        </a>
+    </div>
+
+    <div class="wrapper">
+        <!-- HEADER / HERO -->
+        <header class="hero-section">
+            <div class="status-chip">
+                <span class="pulsing-radar"></span>
+                <span>SYSTEM STATUS: DEFENSIVE TELEMETRY ACTIVE</span>
+            </div>
+
+            <div class="avatar-container">
+                <div class="avatar-glow"></div>
+                <div class="avatar-frame">
+                    <i class="fa-solid fa-user-shield"></i>
+                </div>
+            </div>
+
+            <h1 class="glitch-name">NGUYỄN HOÀNG</h1>
+            <p class="role-title">
+                <span class="highlight-cyan">SOC Analyst</span> in Training <span class="divider">|</span> 
+                <span class="highlight-blue">An Toàn Thông Tin</span> (Cybersecurity)
+            </p>
+
+            <div class="meta-tags">
+                <div class="tag"><i class="fa-solid fa-graduation-cap"></i> Đại học Công nghệ TT & Truyền thông Việt - Hàn (VKU)</div>
+                <div class="tag"><i class="fa-solid fa-calendar-day"></i> Sinh năm: 2006</div>
+                <div class="tag"><i class="fa-solid fa-shield-halved"></i> Định hướng: Blue Team / SOC L1</div>
+                <div class="tag"><i class="fa-solid fa-envelope"></i> <!--email_off-->hoangggnguyennn197@gmail.com<!--/email_off--></div>
+            </div>
+        </header>
+
+        <!-- MAIN CONTENT -->
+        <main>
+            <!-- SECTION 1: ABOUT ME -->
+            <section class="cyber-card">
+                <div class="card-header">
+                    <span class="header-icon"><i class="fa-solid fa-terminal"></i></span>
+                    <h2>GIỚI THIỆU BẢN THÂN</h2>
+                    <span class="header-badge">PROFILE // 01</span>
+                </div>
+                <div class="card-body">
+                    <p class="intro-paragraph">
+                        Xin chào! Tôi là <strong>Nguyễn Hoàng</strong> (sinh năm 2006), hiện là sinh viên chuyên ngành <strong>An toàn thông tin</strong> tại <strong>Trường Đại học Công nghệ thông tin và Truyền thông Việt - Hàn (VKU)</strong>.
+                    </p>
+                    <p class="intro-paragraph">
+                        Tôi có niềm đam mê đặc biệt với lĩnh vực <strong>Phòng thủ mạng (Blue Team)</strong> và hoạt động tại <strong>Security Operations Center (SOC)</strong>. Mục tiêu của tôi là tập trung vào việc thu thập, theo dõi dữ liệu đo lường hệ thống (system telemetry), phát hiện dấu hiệu bất thường, phân tích cảnh báo bảo mật (alert triage) và hỗ trợ ứng cứu sự cố (incident response) nhằm bảo vệ hạ tầng công nghệ thông tin an toàn trước các mối đe dọa hiện đại.
+                    </p>
+                </div>
+            </section>
+
+            <!-- SECTION 2: LIVE SOC TELEMETRY TERMINAL WIDGET -->
+            <section class="cyber-card terminal-card">
+                <div class="terminal-bar">
+                    <div class="terminal-dots">
+                        <span class="dot red"></span>
+                        <span class="dot yellow"></span>
+                        <span class="dot green"></span>
+                    </div>
+                    <div class="terminal-title">
+                        <i class="fa-solid fa-laptop-code"></i> wazuh-sysmon-agent@vku-soc:~/telemetry-monitor
+                    </div>
+                    <div class="terminal-actions">
+                        <span class="pulse-text">STREAMING</span>
+                    </div>
+                </div>
+                <div class="terminal-console">
+                    <div class="console-line"><span class="c-time">[00:12:04]</span> <span class="c-tag info">[INFO]</span> Initializing Wazuh HIDS & Sysmon Event Provider... <span class="c-ok">SUCCESS</span></div>
+                    <div class="console-line"><span class="c-time">[00:15:32]</span> <span class="c-tag log">[EVENT_4688]</span> Process Created: <span class="c-cmd">powershell.exe -ExecutionPolicy Bypass</span> Parent: explorer.exe</div>
+                    <div class="console-line"><span class="c-time">[00:18:10]</span> <span class="c-tag warn">[TRIAGE]</span> Sysmon Event ID 3: Network Connection outbound to remote destination on port 443</div>
+                    <div class="console-line"><span class="c-time">[00:22:45]</span> <span class="c-tag alert">[ALERT]</span> Web Server Access Log: <span class="c-cmd">GET /api/message - HTTP 200 OK</span> (Normal Traffic Verified)</div>
+                    <div class="console-line"><span class="c-time">[00:27:00]</span> <span class="c-tag ok">[STATUS]</span> Zero Trust Tunnel: <span class="c-cyan">cloudflared (QUIC)</span> established. All endpoints monitored.</div>
+                    <div class="console-line prompt-line"><span class="c-prompt">soc-analyst@nguyenhoang:~$</span> <span class="typing-cursor">inspect --telemetry-source "Wazuh + Sysmon + Linux Syslog"</span><span class="cursor">_</span></div>
+                </div>
+            </section>
+
+            <!-- SECTION 3: CORE EXPERTISE -->
+            <section class="cyber-card">
+                <div class="card-header">
+                    <span class="header-icon"><i class="fa-solid fa-shield-virus"></i></span>
+                    <h2>NĂNG LỰC & KỸ NĂNG CHUYÊN MÔN</h2>
+                    <span class="header-badge">SKILLS MATRIX // 02</span>
+                </div>
+                <div class="card-body">
+                    <div class="skills-layout">
+                        <!-- Skill 1 -->
+                        <div class="skill-box">
+                            <div class="skill-box-header">
+                                <div class="icon-circle icon-cyan"><i class="fa-solid fa-file-waveform"></i></div>
+                                <div>
+                                    <h3>Đọc & Phân Tích Log Chuyên Sâu</h3>
+                                    <span class="sub-label">Log Analysis & Forensics</span>
+                                </div>
+                            </div>
+                            <ul class="skill-list">
+                                <li><strong>Windows Event Logs:</strong> Phân tích bảo mật với Event ID 4624 (Logon), 4625 (Failed Logon), 4688 (Process Creation), 4720, 1102...</li>
+                                <li><strong>Linux Syslog:</strong> Thành thạo tra cứu <code>/var/log/auth.log</code>, <code>syslog</code>, <code>secure</code>, SSH brute-force detection.</li>
+                                <li><strong>Web Server Logs:</strong> Phân tích log truy cập Nginx, Apache, nhận diện các mẫu quét cổng, SQL Injection, XSS, Path Traversal.</li>
+                                <li><strong>Forensics cơ bản:</strong> Điều tra số dấu vết tiến trình, thu thập bằng chứng kỹ thuật số.</li>
+                            </ul>
+                        </div>
+
+                        <!-- Skill 2 -->
+                        <div class="skill-box">
+                            <div class="skill-box-header">
+                                <div class="icon-circle icon-blue"><i class="fa-solid fa-network-wired"></i></div>
+                                <div>
+                                    <h3>Mạng Máy Tính & Mật Mã Học</h3>
+                                    <span class="sub-label">Networking & Cryptography</span>
+                                </div>
+                            </div>
+                            <ul class="skill-list">
+                                <li><strong>Kiến trúc mạng & TCP/IP:</strong> Nắm vững mô hình OSI, cơ chế bắt tay 3 bước TCP, giao thức DNS, DHCP, HTTP/HTTPS, ARP.</li>
+                                <li><strong>Bảo mật mạng (Network Security):</strong> Phân tích gói tin mạng với Wireshark, hiểu luồng dữ liệu và phát hiện bất thường.</li>
+                                <li><strong>Mật mã học (Cryptography):</strong> Hiểu biết về thuật toán đối xứng (AES), bất đối xứng (RSA), băm (SHA, MD5), cơ chế chứng chỉ số SSL/TLS và PKI.</li>
+                            </ul>
+                        </div>
+
+                        <!-- Skill 3 -->
+                        <div class="skill-box">
+                            <div class="skill-box-header">
+                                <div class="icon-circle icon-emerald"><i class="fa-solid fa-radar"></i></div>
+                                <div>
+                                    <h3>Phát Hiện Tấn Công & Web Security</h3>
+                                    <span class="sub-label">Threat Detection (Blue Team)</span>
+                                </div>
+                            </div>
+                            <ul class="skill-list">
+                                <li><strong>Tư duy phòng thủ:</strong> Tập trung vào khâu <em>Phát hiện (Detection)</em> và <em>Khoanh vùng</em> hơn là đi khai thác.</li>
+                                <li><strong>Nhận diện các loại tấn công:</strong> Phishing, DoS/DDoS, ARP Spoofing, Man-in-the-Middle, Malware C2 traffic.</li>
+                                <li><strong>Web Application Security:</strong> Hiểu rõ OWASP Top 10 (SQLi, XSS, CSRF, IDOR, Broken Authentication) và các cơ chế phòng vệ WAF.</li>
+                            </ul>
+                        </div>
+
+                        <!-- Skill 4 -->
+                        <div class="skill-box">
+                            <div class="skill-box-header">
+                                <div class="icon-circle icon-purple"><i class="fa-solid fa-server"></i></div>
+                                <div>
+                                    <h3>Công Cụ SIEM & Telemetry Monitoring</h3>
+                                    <span class="sub-label">Wazuh, Sysmon, Splunk, ELK</span>
+                                </div>
+                            </div>
+                            <ul class="skill-list">
+                                <li><strong>Wazuh & Sysmon:</strong> Thu thập và theo dõi telemetry hệ thống, cấu hình agent giám sát tệp tin toàn vẹn (FIM) và tiến trình lạ.</li>
+                                <li><strong>Nền tảng SIEM:</strong> Làm quen với việc gom log, viết quy tắc truy vấn cảnh báo trên Splunk, ELK Stack, Wazuh Dashboard.</li>
+                                <li><strong>Incident Triage & Response:</strong> Quy trình phân loại mức độ nguy cấp của cảnh báo (Alert Triage), ghi nhận vé xử lý sự cố (Ticketing).</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SECTION 4: CONTACT & REACH OUT -->
+            <section class="cyber-card">
+                <div class="card-header">
+                    <span class="header-icon"><i class="fa-solid fa-envelope-open-text"></i></span>
+                    <h2>LIÊN HỆ & KẾT NỐI</h2>
+                    <span class="header-badge">COMMUNICATION // 03</span>
+                </div>
+                <div class="card-body">
+                    <div class="contact-grid">
+                        <div class="contact-info-pane">
+                            <h3>Thông Tin Liên Hệ Trực Tiếp</h3>
+                            <p>Nếu bạn quan tâm đến hồ sơ năng lực của tôi, cần trao đổi về học thuật hoặc cơ hội thực tập vị trí SOC Analyst / An toàn thông tin, xin vui lòng gửi tin nhắn hoặc liên hệ trực tiếp:</p>
+                            
+                            <div class="info-block">
+                                <div class="info-item">
+                                    <i class="fa-solid fa-envelope info-icon"></i>
+                                    <div>
+                                        <span class="info-label">Email chính thức:</span>
+                                        <a href="mailto:<!--email_off-->hoangggnguyennn197@gmail.com<!--/email_off-->" class="info-val"><!--email_off-->hoangggnguyennn197@gmail.com<!--/email_off--></a>
+                                    </div>
+                                </div>
+                                <div class="info-item">
+                                    <i class="fa-solid fa-building-columns info-icon"></i>
+                                    <div>
+                                        <span class="info-label">Trường theo học:</span>
+                                        <span class="info-val">ĐH Công nghệ TT & Truyền thông Việt - Hàn (VKU)</span>
+                                    </div>
+                                </div>
+                                <div class="info-item">
+                                    <i class="fa-solid fa-user-tag info-icon"></i>
+                                    <div>
+                                        <span class="info-label">Chuyên ngành đào tạo:</span>
+                                        <span class="info-val">An toàn thông tin (Information Security)</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="contact-form-pane">
+                            <form id="contactForm">
+                                <div class="form-group">
+                                    <label for="name"><i class="fa-solid fa-user"></i> Họ và tên người gửi:</label>
+                                    <input type="text" id="name" name="name" required placeholder="Nhập tên của bạn...">
+                                </div>
+                                <div class="form-group">
+                                    <label for="email"><i class="fa-solid fa-at"></i> Địa chỉ Email:</label>
+                                    <input type="email" id="email" name="email" required placeholder="email@domain.com">
+                                </div>
+                                <div class="form-group">
+                                    <label for="message"><i class="fa-solid fa-message"></i> Nội dung lời nhắn:</label>
+                                    <textarea id="message" name="message" rows="4" required placeholder="Nhập nội dung tin nhắn hoặc trao đổi..."></textarea>
+                                </div>
+                                <button type="submit" class="cyber-btn" id="submitBtn">
+                                    <span class="btn-text"><i class="fa-solid fa-paper-plane"></i> Gửi Tin Nhắn Đến Nguyễn Hoàng</span>
+                                    <span class="btn-glow"></span>
+                                </button>
+                                <div id="formAlert" class="alert-box hidden"></div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- FOOTER -->
+        <footer class="cyber-footer">
+            <p>&copy; 2026 <strong>Nguyễn Hoàng</strong> - Sinh viên An toàn thông tin | Trường ĐH CNTT & Truyền thông Việt - Hàn (VKU).</p>
+            <p class="footer-sub">Website được triển khai bằng Docker Container & Cloudflare Zero Trust Tunnel.</p>
+        </footer>
+    </div>
+
+    <!-- Interactive Contact Form Script -->
+    <script>
+        document.getElementById('contactForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            const btn = document.getElementById('submitBtn');
+            const alertBox = document.getElementById('formAlert');
+            
+            btn.disabled = true;
+            btn.innerHTML = '<span class="btn-text"><i class="fa-solid fa-circle-notch fa-spin"></i> Đang truyền dữ liệu qua API...</span>';
+
+            const payload = {
+                name: document.getElementById('name').value,
+                email: document.getElementById('email').value,
+                message: document.getElementById('message').value
+            };
+
+            try {
+                const res = await fetch('/api/message', {
+                    method: 'POST',
+                    headers: {'Content-Type': 'application/json'},
+                    body: JSON.stringify(payload)
+                });
+                const result = await res.json();
+                alertBox.textContent = result.message || 'Tin nhắn đã được gửi thành công đến hệ thống!';
+                alertBox.className = 'alert-box ' + (res.ok ? 'alert-success' : 'alert-error');
+                if (res.ok) {
+                    document.getElementById('contactForm').reset();
+                }
+            } catch (err) {
+                alertBox.textContent = 'Lỗi kết nối máy chủ! Vui lòng thử lại sau.';
+                alertBox.className = 'alert-box alert-error';
+            } finally {
+                btn.disabled = false;
+                btn.innerHTML = '<span class="btn-text"><i class="fa-solid fa-paper-plane"></i> Gửi Tin Nhắn Đến Nguyễn Hoàng</span><span class="btn-glow"></span>';
+            }
+        });
+
+        // Tự động kiểm tra và đồng bộ Top Banner khi Admin gửi lời nhắn từ điện thoại
+        async function refreshTopBanner() {
+            try {
+                const res = await fetch('/api/banner');
+                if (res.ok) {
+                    const data = await res.json();
+                    const el = document.getElementById('topMarqueeText');
+                    if (el && data.message && el.textContent.trim() !== data.message.trim()) {
+                        el.textContent = data.message;
+                    }
+                }
+            } catch (err) {}
+        }
+        setInterval(refreshTopBanner, 8000);
+    </script>
+</body>
+</html>

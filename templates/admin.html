@@ -20,7 +20,7 @@
             </div>
             <div class="card-body">
                 <p style="font-size: 13.5px; color: #94a3b8; text-align: center; margin-bottom: 20px;">
-                    Cập nhật <strong>Top Banner chữ chạy</strong> hiển thị trên website chính thức của Nguyễn Hoàng từ điện thoại di động.
+                    Cổng điều khiển dành riêng cho Quản trị viên (Admin). Vui lòng nhập mã PIN bảo mật để cập nhật <strong>Top Banner</strong>.
                 </p>
 
                 <div style="background: rgba(30, 41, 59, 0.6); padding: 12px; border-radius: 8px; border: 1px solid rgba(56, 189, 248, 0.2); margin-bottom: 20px; font-size: 13px;">
@@ -28,10 +28,10 @@
                     <div id="currentBanner" style="color: #38bdf8; font-weight: 600;">Đang tải...</div>
                 </div>
 
-                <form id="adminForm">
+                <form id="adminForm" autocomplete="off">
                     <div class="form-group">
-                        <label for="adminPin"><i class="fa-solid fa-key"></i> Mã PIN xác thực Admin:</label>
-                        <input type="password" id="adminPin" required placeholder="Nhập mã PIN (Mặc định: 2006)" value="2006">
+                        <label for="adminPin"><i class="fa-solid fa-shield-halved"></i> Mã PIN xác thực Admin:</label>
+                        <input type="password" id="adminPin" required placeholder="Nhập mã PIN bảo mật của Admin..." autocomplete="new-password">
                     </div>
 
                     <div class="form-group">
